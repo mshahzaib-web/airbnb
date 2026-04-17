@@ -1,0 +1,95 @@
+<% layout('/layouts/boilerplate') %>
+
+<body>
+  <h2>Edit Listing</h2>
+  <br /><br />
+  <div class="row">
+    <div class="col-8 offset-2">
+      <form
+        action="/listings/<%= listing._id %>?_method=PUT"
+        method="post"
+        novalidate
+        class="needs-validation"
+        enctype="multipart/form-data"
+      >
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            name="listing[title]"
+            placeholder="Enter title"
+            value="<%= listing.title %>"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            name="listing[description]"
+            class="form-control"
+            placeholder="Enter description"
+            required
+          >
+<%= listing.description %></textarea
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="url" class="form-label">Upload New Image</label>
+          <a class="edit-preview-btn" href="<%= listing.image.url %>" target="_blank">See Old Img</a>
+          <input
+            type="file"
+            name="listing[image]"
+            class="form-control"
+            placeholder="Enter image url"
+          />
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              name="listing[price]"
+              class="form-control"
+              value="<%= listing.price %>"
+              placeholder="Enter price"
+              required
+            />
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="location" class="form-label">Location</label>
+            <input
+              type="text"
+              name="listing[location]"
+              class="form-control"
+              value="<%= listing.location %>"
+              placeholder="Enter location"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="country" class="form-label">Country</label>
+          <input
+            type="text"
+            name="listing[country]"
+            class="form-control"
+            value="<%= listing.country %>"
+            placeholder="Enter country"
+            required
+          />
+        </div>
+        <br />
+        <div class="d-flex add-button">
+          <button class="btn add-btn">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/JS/form-validation.js"></script>
+</body>

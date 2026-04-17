@@ -1,0 +1,106 @@
+<% layout('/layouts/boilerplate') %>
+
+<body>
+  <h2>Create New Listing:</h2>
+  <br /><br />
+  <div class="row">
+    <div class="col-7 offset-2">
+      <form
+        action="/listings"
+        method="post"
+        novalidate
+        class="needs-validation"
+        enctype="multipart/form-data"
+      >
+        <div class="shadow mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control p-2"
+            name="listing[title]"
+            placeholder="Enter Title"
+            required
+          />
+        </div>
+
+        <div class="shadow mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            name="listing[description]"
+            class="form-control"
+            placeholder="Enter Description"
+            required
+          ></textarea>
+        </div>
+
+        <div class="shadow mb-3">
+          <label for="url" class="form-label">Upload Image</label>
+          <input
+            type="file"
+            class="form-control"
+            name="listing[image]"
+            required
+          />
+        </div>
+
+        <div class="form-floating shadow mb-3">
+          <select
+            class="form-select"
+            id="floatingSelect"
+            name="listing[category]"
+            aria-label="Floating label select example"
+          >
+            <option selected>Select</option>
+            <option value="city">City</option>
+            <option value="mountain">Mountain</option>
+            <option value="beach">Beach</option>
+            <option value="sea">Sea</option>
+            <option value="peace">Peace</option>
+          </select>
+          <label for="floatingSelect">Select Category</label>
+        </div>
+
+        <div class="row">
+          <div class="shadow mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              name="listing[price]"
+              placeholder="Enter price"
+              required
+            />
+          </div>
+
+          <div class="shadow mb-3 col-md-8">
+            <label for="location" class="form-label">Location</label>
+            <input
+              type="text"
+              class="form-control"
+              name="listing[location]"
+              id=""
+              placeholder="Enter location"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="shadow mb-3">
+          <label for="country" class="form-label">Country</label>
+          <input
+            type="text"
+            class="form-control"
+            name="listing[country]"
+            placeholder="Enter country"
+            required
+          />
+        </div>
+
+        <br />
+        <div class="add-button d-flex">
+          <button class="btn add-btn">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>

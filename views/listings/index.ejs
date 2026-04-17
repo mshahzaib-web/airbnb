@@ -1,0 +1,80 @@
+<% layout('/layouts/boilerplate') %>
+
+<body>
+  
+    <div class="search-nav container-fluid mb-4 shadow">
+      <form class="d-flex" role="search" action="/listings/search" method="get">
+        <input
+          class="form-control me-2"
+          type="search"
+          name="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-danger" type="submit">Search</button>
+      </form>
+    </div>
+  
+  <div class="row">
+    <h5>Category:</h5>
+    <div class="category shadow m-auto">
+      <a href="/listings/category?category=city">
+        <div class="category-list">
+          <i class="fa-solid fa-city"></i>
+          <p>City</p>
+        </div>
+      </a>
+      <a href="/listings/category?category=sea">
+        <div class="category-list">
+          <i class="fa-solid fa-water"></i>
+          <p>Sea</p>
+        </div>
+      </a>
+      <a href="/listings/category?category=beach">
+        <div class="category-list">
+          <i class="fa-solid fa-umbrella-beach"></i>
+          <p>Beach</p>
+        </div>
+      </a>
+      <a href="/listings/category?category=mountain">
+        <div class="category-list">
+          <i class="fa-solid fa-mountain-city"></i>
+          <p>Mountain</p>
+        </div>
+      </a>
+      <a href="/listings/category?category=peace">
+        <div class="category-list">
+          <i class="fa-solid fa-peace"></i>
+          <p>Peace</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <br />
+  <!-- <form action="/listings/new" method="get">
+        <button>Add Listing</button>
+    </form> -->
+  <div
+    class="row justify-content-evenly row-cols-lg-3 row-cols-md-2 row-cols-sm-1"
+  >
+    <% for( listing of allListings) { %>
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+      <div class="card">
+        <img
+          loading="lazy"
+          src="<%= listing.image.url %>"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <b>
+            <p class="listing-title"><%= listing.title %></p>
+          </b>
+          <p>RS: <%= listing.price.toLocaleString("en-PK") %> /Night</p>
+        </div>
+      </div>
+    </a>
+    <% } %>
+  </div>
+</body>

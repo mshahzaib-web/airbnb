@@ -1,0 +1,14 @@
+@media (max-width: 767px) {
+    .category{
+        width: 100%;
+    }
+    .nav-inner-search{
+        display: none;
+    }
+}
+
+@media (min-width: 767px) {
+    .search-nav{
+        display: none;
+    }
+}
