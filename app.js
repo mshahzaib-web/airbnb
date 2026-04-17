@@ -29,6 +29,8 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const { stat } = require("fs");
 
+
+
 main()
   .then((res) => {
     console.log("connect with DB success");
@@ -87,6 +89,8 @@ app.use((err, req, res, next) => {
   res.status(status).render("error.ejs", { err });
 });
 
-app.listen(8080, () => {
-  console.log("port start on 8080");
+const port = process.env.PORT || 8080;
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
